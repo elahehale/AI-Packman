@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+int main(){
+	int iteration = 0;
+	printf("enter iteration: ");
+	scanf("%d", &iteration);
+	srand(time(0));
+	clock_t start = clock();
+	int hist[25] = {0};
+	for (int i = 0; i < iteration; ++i){
+		int counter = 0;
+		for ( int j = 0; j < 12; ++j){
+			int random = rand()%(100 - 0 + 1);
+			if (random >=49)
+				counter++;
+			else
+				counter--;
+		}
+		hist[counter + 12] += 1;
+	}
+	clock_t end = clock();
+	double time_spent = (double)(end - start)/CLOCKS_PER_SEC;
+	printf("\nTime Spent %lf\n", time_spent);
+		 for (int i = 0; i < 25; i++)
+            		printf("%d ", hist[i]);
+	for (int i = 0; i < 25; ++i){
+		printf("hist[%d] : ", i -12);
+		for (int j = 0 ; j < (int)(hist[i]/(iteration/100)); ++j)
+			printf("*");
+		printf("\n");
+	}
+}
+
+for (int i = 0; i < 25; i++)
+		        		printf("%d ", arr[i]);
+	    		for (int i = 0; i < 25; ++i){
+	    			printf("arr[%d] : ", i -12);
+				for (int j = 0 ; j < (int)(arr[i]/(200)); ++j)
+					printf("*");
+				printf("\n");
+			}
